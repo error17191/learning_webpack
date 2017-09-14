@@ -5,7 +5,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     entry: {
-        app: ['./src/main.js','./src/main.scss']
+        app: ['./src/main.js', './src/main.scss']
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -17,7 +17,16 @@ module.exports = {
                 test: /\.s[ca]ss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: ["css-loader","sass-loader"]
+                    use: [
+                        {
+                            loader: "css-loader",
+                            options: {
+                                url : false,
+                            }
+                        }
+                        ,
+                        "sass-loader"
+                    ]
                 })
             }
         ]
