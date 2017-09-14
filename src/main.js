@@ -1,6 +1,5 @@
-import $ from 'jquery';
-
-
-$('body').css({
-    backgroundColor: 'red'
-});
+class Form {
+    constructor() {
+        alert("Classes working");
+    }
+}
