@@ -15,8 +15,13 @@ module.exports = {
                 loader: "babel-loader"
             }
         ]
-    }
+    },
+    plugins: []
 
 };
 
+
+if(process.env.NODe_ENV === 'production'){
+    module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin())
+}
 
